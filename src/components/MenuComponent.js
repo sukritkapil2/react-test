@@ -6,7 +6,6 @@ import {
     CardTitle,
     Breadcrumb,
     BreadcrumbItem,
-    CardText,
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
