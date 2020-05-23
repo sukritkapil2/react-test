@@ -59,14 +59,14 @@ class Main extends Component {
                         )[0]
                     }
                     dishesLoading={this.props.dishes.isLoading}
-                    dishesErrMess={this.props.dishes.errMess}
+                    dishesErrMess={this.props.dishes.errMessage}
                     promotion={
                         this.props.promotions.promotions.filter(
                             (promo) => promo.featured
                         )[0]
                     }
                     promosLoading={this.props.promotions.isLoading}
-                    promosErrMess={this.props.promotions.errMess}
+                    promosErrMess={this.props.promotions.errMessage}
                     leader={
                         this.props.leaders.filter(
                             (leader) => leader.featured
@@ -89,10 +89,10 @@ class Main extends Component {
                         (comment) =>
                             comment.dishId === parseInt(match.params.dishId, 10)
                     )}
-                    commentsErrMess={this.props.comments.errMess}
+                    commentsErrMess={this.props.comments.errMessage}
                     addComment={this.props.addComment}
                     isLoading={this.props.dishes.isLoading}
-                    errMess={this.props.dishes.errMess}
+                    errMess={this.props.dishes.errMessage}
                 ></DishDetail>
             );
         };

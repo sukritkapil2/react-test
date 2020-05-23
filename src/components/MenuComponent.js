@@ -45,11 +45,11 @@ const Menu = (props) => {
                 </div>
             </div>
         );
-    } else if (props.dishes.errMess) {
+    } else if (props.dishes.errMessage) {
         return (
             <div className="container">
                 <div className="row">
-                    <h4>{props.dishes.errMess}</h4>
+                    <h4>{props.dishes.errMessage}</h4>
                 </div>
             </div>
         );
