@@ -13,6 +13,8 @@ import {
     fetchDishes,
     fetchComments,
     fetchPromos,
+    fetchLeaders,
+    postFeedback,
 } from "../redux/ActionCreators";
 import { actions } from "react-redux-form";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -41,6 +43,10 @@ const mapDispatchToProps = (dispatch) => ({
     resetFeedbackForm: () => {
         dispatch(actions.reset("feedback"));
     },
+    fetchLeaders: () => {
+        dispatch(fetchLeaders());
+    },
+    postFeedback: (feedback) => dispatch(postFeedback(feedback)),
 });
 
 class Main extends Component {
@@ -48,6 +54,7 @@ class Main extends Component {
         this.props.fetchDishes();
         this.props.fetchComments();
         this.props.fetchPromos();
+        this.props.fetchLeaders();
     }
 
     render() {
@@ -69,10 +76,12 @@ class Main extends Component {
                     promosLoading={this.props.promotions.isLoading}
                     promosErrMess={this.props.promotions.errMessage}
                     leader={
-                        this.props.leaders.filter(
+                        this.props.leaders.leaders.filter(
                             (leader) => leader.featured
                         )[0]
                     }
+                    leadersLoading={this.props.leaders.isLoading}
+                    leadersErrMess={this.props.leaders.errMessage}
                 ></Home>
             );
         };
@@ -125,6 +134,7 @@ class Main extends Component {
                                 path="/contactus"
                                 component={() => (
                                     <Contact
+                                        postFeedback={this.props.postFeedback}
                                         resetFeedbackForm={
                                             this.props.resetFeedbackForm
                                         }
